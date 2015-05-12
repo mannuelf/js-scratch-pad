@@ -1,0 +1,26 @@
+{
+  "name": "complete-javascript-from-fundamentals-to-functional-js",
+  "version": "1.0.0",
+  "description": "learning JS",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manidf/js102.git"
+  },
+  "keywords": [
+    "JavaScript"
+  ],
+  "author": "Mannuel Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manidf/js102/issues"
+  },
+  "homepage": "https://github.com/manidf/js102",
+  "devDependencies": {
+    "browser-sync": "^2.6.5",
+    "gulp": "^3.8.11"
+  }
+}
