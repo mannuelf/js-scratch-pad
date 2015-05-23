@@ -21,12 +21,13 @@ function AnimalTestUser(username) {
    }
 
    return {
-      username: username,
-      otherArgs: otherArgs
+      'username': username,
+      'otherArgs': otherArgs
    }
 }
 
 // Q3
+//Constructor function with 4 paremeters
 function AnimalCreator(username, species, tagline, noises) {
    var animal = {
       username: username,
@@ -37,5 +38,37 @@ function AnimalCreator(username, species, tagline, noises) {
    };
    return animal;
 }
-var sheep = AnimalCreator('Cloud', 'sheep', 'You can count on me!', ['John', 'Sue', 'Miguel']);
-console.log(sheep);
+
+var dog = AnimalCreator('Sam', 'Canine', 'I am barking mad!', ['John', 'Sue', 'Miguel']);
+
+console.log(dog);
+
+// Q4
+function addFriend(animal, friend) {
+   //animal.freinds.push(friend);
+   animal.friends.push(friend.username);
+}
+
+
+//06
+var myFarm = ['sheep', 'cow', 'llama'];
+addFriend(cow, sheep);
+addFriend(llama, cow);
+console.log(myFarm);
+
+//07
+function addMatchesArray(farm) {
+   for(var animal in farm){
+      farm[animal].matches = [];
+   }
+}
+addMatchesArray(myFarm);
+console.log(myFarm[0]);
+
+function giveMatches(myFarm){
+   for (var animal in farm) {
+    farm[animal].matches.push(farm[animal].freinds[0]);
+   }
+}
+giveMatches(myFarm);
+console.log(myFarm[0]);
