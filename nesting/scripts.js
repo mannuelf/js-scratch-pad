@@ -1,9 +1,10 @@
 var box = {};
 
-box.innerBox = {};
+box['innerBox'] = {};
+box['innerBox'].full = true;
 
-box.innerBox.babyBox = {};
+box['innerBox']['height'] = 10;
 
-box.innerBox['babyBox'];
-
-box.innerBox['babyBox'].says = "Whats up";
+box.otherBox = {};
+var innerBox2 = 'otherBox';
+box[innerBox2].full = false;
