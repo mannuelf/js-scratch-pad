@@ -72,7 +72,6 @@ test();
 
 
 // GOTCHA
-
 var sayAlice = function(){
 
    var makeLog = function() {
@@ -87,3 +86,26 @@ var sayAlice = function(){
 
 var whatDoesSheSay = sayAlice();
 whatDoesSheSay();
+
+// stop watch
+var makeStopwatch = function(){
+
+   console.log('initialised');
+   var elapsed = 0;
+   console.log(elapsed);
+
+   var stopwatch = function() {
+      console.log('stopwatch');
+      return elapsed;
+   };
+
+   var increase = function(){ elapsed++; };
+   setInterval(increase, 1000);
+
+   return stopwatch;
+
+};
+
+var x = makeStopwatch();
+
+x();
