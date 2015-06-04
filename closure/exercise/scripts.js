@@ -51,3 +51,4 @@ var storyWriter = function() {
 var storyOfMyLife = storyWriter();
 storyOfMyLife.addWords('Hello there');
 storyOfMyLife.addWords('Joey');
+erase();
