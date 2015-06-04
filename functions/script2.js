@@ -65,3 +65,4 @@ for(var i = 0; i < animalNames.length; i++) {
 
 for(var i = 0; i < farm.length; i++) {
    farm[i].speak;
+}
