@@ -21,7 +21,8 @@
   "homepage": "https://github.com/manidf/js102",
   "devDependencies": {
     "browser-sync": "^2.6.5",
-    "gulp": "^3.8.11"
+    "gulp": "^3.8.11",
+    "gulp-sass": "^2.1.1"
   },
   "dependencies": {
     "underscore": "^1.8.3"
