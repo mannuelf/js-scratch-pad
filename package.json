@@ -22,7 +22,9 @@
   "devDependencies": {
     "browser-sync": "^2.6.5",
     "gulp": "^3.8.11",
-    "gulp-sass": "^2.1.1"
+    "gulp-eslint": "^1.1.1",
+    "gulp-sass": "^2.1.1",
+    "gulp-util": "^3.0.7"
   },
   "dependencies": {
     "underscore": "^1.8.3"
