@@ -16,4 +16,3 @@ document.write( '<h3>' + localStorage.length + '</h3>');
 
 // locaStorage.removeItem();
 //document.write( '<h1>Hi ' + localStorage.removeItem() + '</h1>');
-
