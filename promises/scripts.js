@@ -10,8 +10,7 @@ var promise = Promise(function(resolve, reject) {
 	}
 });
 
-
-
+// then takes two arguments, a callback for success case and another for faluire case
 promise.then(function(result) {
 	console.log(result);
 }, function(error) {
