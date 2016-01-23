@@ -30,12 +30,57 @@ function get(url) {
 //	console.log("Yey JSON!", response);
 //});
 
+// 03
 function getJSON(url) {
 	return get(url).then(JSON.parse);
 }
 
+//getJSON('story.json').then(function(story) {
+//	return getJSON(story.chapterUrls[0]);
+//}).then(function(chapter1) {
+//	console.log('Got chapter 1!', chapter1)
+//});
+
+var storyPromise;
+
+function getChapter(i) {
+	storyPromise = storyPromise || getJSON('story.json');
+
+	return storyPromise.then(function(story) {
+		return getJSON(story.chapterUrls[i]);
+	});
+}
+
+// Queuing asynchronous actions
+getChapter(2).then(function(chapter) {
+	console.log(chapter);
+	return getChapter(1);
+}).then(function(chapter) {
+	console.log('chapter');
+});
+
+// Error handling in practice
 getJSON('story.json').then(function(story) {
 	return getJSON(story.chapterUrls[0]);
 }).then(function(chapter1) {
-	console.log('Got chapter 1!', chapter1)
+	addHtmlToPage(chapter1.html);
+}).catch(function() {
+	addTextToPage('Failed to show chapter');
+}).then(function() {
+	document.querySelector('.spinner').style.display = 'none';
 });
+
+
+
+
+// http://www.html5rocks.com/en/tutorials/es6/promises/
+
+
+
+
+
+
+
+
+
+
