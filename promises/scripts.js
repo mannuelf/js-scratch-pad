@@ -3,7 +3,7 @@
 // the promise constructor takes one argument, a callback with two parameters 'resolve' and 'reject'
 var promise = Promise(function(resolve, reject) {
 	// do something, async or otherwise
-	if ( /* everything turned out fine */ ) {
+	if ( everything_turned_out_fine === true ) {
 		resolve('stuff worked!');
 	} else {
 		reject(Error('it broke'));
