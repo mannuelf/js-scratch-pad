@@ -32,7 +32,10 @@ function get(url) {
 
 // 03
 function getJSON(url) {
-	return get(url).then(JSON.parse);
+	return get(url).then(JSON.parse).catch(function(error) {
+		console.log('getJSON failed for', url, error);
+		throw error;
+	});
 }
 
 //getJSON('story.json').then(function(story) {
@@ -51,28 +54,28 @@ function getChapter(i) {
 	});
 }
 
-// Queuing asynchronous actions
-getChapter(2).then(function(chapter) {
-	console.log(chapter);
-	return getChapter(1);
-}).then(function(chapter) {
-	console.log('chapter');
-});
-
-// Error handling in practice
 getJSON('story.json').then(function(story) {
-	return getJSON(story.chapterUrls[0]);
-}).then(function(chapter1) {
-	addHtmlToPage(chapter1.html);
-}).catch(function() {
-	addTextToPage('Failed to show chapter');
+	addHtmlToPage(story.heading);
+
+	// Take an array of promises and wait on them all
+	return Promise.all(
+		// Map our array of chapter urls to
+		// an array of chapter json promises
+		story.chapterUrls.map(getJSON)
+	);
+}).then(function(chapters) {
+	// Now we have the chapters jsons in order! Loop through…
+	chapters.forEach(function(chapter) {
+		// …and add to the page
+		addHtmlToPage(chapter.html);
+	});
+	addTextToPage("All done");
+}).catch(function(err) {
+	// catch any error that happened so far
+	addTextToPage("Argh, broken: " + err.message);
 }).then(function() {
 	document.querySelector('.spinner').style.display = 'none';
 });
-
-
-
-
 // http://www.html5rocks.com/en/tutorials/es6/promises/
 
 
