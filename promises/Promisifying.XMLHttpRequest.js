@@ -29,8 +29,13 @@ function get(url) {
 	});
 }
 
-get(story.json).then(function(response) {
-	console.log('Success!', response);
-}, function(error) {
-	console.log('Failed!', error);
+//get('story.json').then(function(response) {
+//	console.log('Success!', response);
+//	return JSON.parse(response)
+//}, function(error) {
+//	console.log('Failed!', error);
+//});
+
+get('story.json').then(JSON.parse).then(function(response) {
+	console.log("Yey JSON!", response);
 });
