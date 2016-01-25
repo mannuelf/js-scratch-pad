@@ -23,22 +23,22 @@ function loadData() {
 	var NYTBaseURl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?callback=svc_search_v2_articlesearch&q='+$city+'&begin_date=18580101&end_date=20150101&sort=newest&page=2&api-key='+NYTApiKey;
 
 	$.getJSON( NYTBaseURl, function( data ) {
-		var items = [];
 
-		$.each( data , function( key, val ) {
-			items.push( "<li id='" + key + "'>" + val + "</li>" );
-		});
+		$nytHeaderElem.text('New York Times Articles About '+$city);
 
-		$( "<ul/>", {
-			"id": "nytimes-articlesX",
-			html: items.join( "" )
-		}).appendTo( "body" );
-		console.log(data);
+		var articles = data.response.docs;
+		for (var i = 0; i < articles.length; i++ ) {
+			// iterate through array object
+			var article = articles[i];
+
+			$nytElem.append('<li class="article">'+'<a href="'+article_url+'">'+article.headline.main+'</a>'+
+				'<p>'+article.snippet+'</p>'+
+				'</li>');
+		}
 	});
 
-
-	console.log($street);
-	console.log($city);
+	console.info($street);
+	console.info($city);
 
 	return false;
 }
