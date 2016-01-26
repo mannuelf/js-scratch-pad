@@ -4,7 +4,7 @@
   "description": "learning JS",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp",
+    "start": "gulp; babel src -d lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +28,8 @@
     "gulp-util": "^3.0.7"
   },
   "dependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-register": "^6.4.3",
     "underscore": "^1.8.3"
   }
 }
