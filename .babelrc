@@ -1,0 +1,12 @@
+{
+  "presets": [
+     "es2015",
+     "react",
+     "transform-runtime",
+     "transform-es2015-classes"
+   ],
+  "plugins": [
+    "transform-es2015-classes"
+    ["transform-es2015-classes", {"loose": true}]
+  ]
+}
