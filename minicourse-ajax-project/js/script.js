@@ -23,17 +23,15 @@ function loadData() {
 	var NYTBaseURl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?callback=svc_search_v2_articlesearch&q='+$city+'&begin_date=18580101&end_date=20150101&sort=newest&page=2&api-key='+NYTApiKey;
 
 	$.getJSON( NYTBaseURl, function( data ) {
-
 		$nytHeaderElem.text('New York Times Articles About '+$city);
 
 		var articles = data.response.docs;
-		var webUrl = data.response.docs.web_url;
 		for (var i = 0; i < articles.length; i++) {
 			// iterate through array object
 			var article = articles[i];
-			var webUrl = webUrls[i];
-
-			$nytElem.append('<li class="article">'+'<a href="'+webUrl+'">'+article.headline.main+'</a>'+
+			$nytElem.append('<li class="article">'+
+				'<a href="'+article.web_url+'">'+
+				article.headline.main+'</a>'+
 				'<p>'+article.snippet+'</p>'+
 				'</li>');
 		}
