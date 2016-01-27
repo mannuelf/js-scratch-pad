@@ -27,14 +27,18 @@ function loadData() {
 		$nytHeaderElem.text('New York Times Articles About '+$city);
 
 		var articles = data.response.docs;
-		for (var i = 0; i < articles.length; i++ ) {
+		var webUrl = data.response.docs.web_url;
+		for (var i = 0; i < articles.length; i++) {
 			// iterate through array object
 			var article = articles[i];
+			var webUrl = webUrls[i];
 
-			$nytElem.append('<li class="article">'+'<a href="'+article_url+'">'+article.headline.main+'</a>'+
+			$nytElem.append('<li class="article">'+'<a href="'+webUrl+'">'+article.headline.main+'</a>'+
 				'<p>'+article.snippet+'</p>'+
 				'</li>');
 		}
+	}).error(function(e){
+		$nytHeaderElem.text('New York times could not be loaded, sorry');
 	});
 
 	console.info($street);
