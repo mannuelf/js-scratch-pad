@@ -26,9 +26,11 @@ function loadData() {
 		$nytHeaderElem.text('New York Times Articles About '+$city);
 
 		var articles = data.response.docs;
+
 		for (var i = 0; i < articles.length; i++) {
 			// iterate through array object
 			var article = articles[i];
+
 			$nytElem.append('<li class="article">'+
 				'<a href="'+article.web_url+'">'+
 				article.headline.main+'</a>'+
@@ -37,6 +39,25 @@ function loadData() {
 		}
 	}).error(function(e){
 		$nytHeaderElem.text('New York times could not be loaded, sorry');
+	});
+
+	// Query wikipedia
+	var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + $city + '&format=json&callback=wikiCallback';
+
+	$.ajax({
+		url: wikiUrl,
+		dataType: 'json',
+		json: 'callback',
+		success: function( response ) {
+			var articleList = response[1];
+
+			for (var i = 0; i < articleList.length; i++ ) {
+				articleStr = articleList[i];
+				var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+				$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
+			}
+
+		}
 	});
 
 	console.info($street);
