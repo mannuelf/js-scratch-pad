@@ -42,12 +42,16 @@ function loadData() {
 	});
 
 	// Query wikipedia
-	var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + $city + '&format=json&callback=wikiCallback';
+	var wikiUrl = 'http://en.wikeipedia.org/w/api.php?action=opensearch&search=' + $city + '&format=json&callback=wikiCallback';
+
+	var wikiRequestTimeout = setTimeout(function() {
+		$wikiElem.text('Failed to load wiki');
+	}, 8000);
 
 	$.ajax({
 		url: wikiUrl,
 		dataType: 'json',
-		json: 'callback',
+		jsonp: 'callback',
 		success: function( response ) {
 			var articleList = response[1];
 
@@ -56,6 +60,8 @@ function loadData() {
 				var url = 'http://en.wikipedia.org/wiki/' + articleStr;
 				$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
 			}
+
+			clearTimeout(wikiRequestTimeout);
 
 		}
 	});
