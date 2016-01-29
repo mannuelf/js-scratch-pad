@@ -1,3 +1,15 @@
+function aHero () {
+	return 'Gal ';
+}
+
+function aFoil () {
+	return 'Cow ';
+}
+
+function aDeed () {
+	return 'Taps ';
+}
+
 var sagas = []; // global array to push saga functions into the sagas array
 var hero = aHero();
 var newSaga = function () {
@@ -12,4 +24,4 @@ sagas[0]();
 sagas[0]();
 
 newSaga();
-saga[1]();
+sagas[1]();
