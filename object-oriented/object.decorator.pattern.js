@@ -1,17 +1,16 @@
-var move = function(car) {
-  car.loc++  
+var carlike = function(obj, loc) {
+    obj.loc = loc
+    obj.move = function move() {
+      this.loc++  
+    }
+    return obj
 }
 
-var amy = {
-    loc: 1
-}
+var amy = carlike({}, 1)
+amy.move(20)
 
-amy.loc++
-
-var ben = {
-  loc: 9  
-}
-ben.loc++
+var ben = carlike({}, 9)
+ben.move(40)
 
 console.log('Amy drove: ', amy.loc)
 console.log('Ben drove: ', ben.loc);
