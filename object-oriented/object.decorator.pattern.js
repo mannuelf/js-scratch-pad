@@ -1,7 +1,7 @@
 var carlike = function(obj, loc) {
     obj.loc = loc
     obj.move = function move() {
-      this.loc++  
+     obj.loc++  
     }
     return obj
 }
