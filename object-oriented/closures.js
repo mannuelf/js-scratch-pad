@@ -16,12 +16,14 @@ var newSaga = function () {
 	var foil = aFoil();
 	sagas.push(function() {
 		var deed = aDeed();
-		console.log(hero+deed+foil);
+        var deedOne = aHero();
+		console.log('sagas.push: ', hero+deed+foil+deedOne);
 	});
 };
 newSaga();
 sagas[0]();
 sagas[0]();
-
 newSaga();
+sagas[0]();
 sagas[1]();
+sagas[0]();
