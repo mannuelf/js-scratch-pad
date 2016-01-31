@@ -1,11 +1,3 @@
-var carlike = function(obj, loc) {
-    obj.loc = loc
-    obj.move = function move() {
-     obj.loc++  
-    }
-    return obj
-}
-
 var amy = carlike({}, 1)
 amy.move(20)
 
