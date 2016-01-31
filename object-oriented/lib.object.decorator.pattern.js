@@ -1,8 +1,5 @@
 var Car = function(loc) {
-    var obj = Object.create(loc);
-    obj.move = function move() {
-     obj.loc++  
-    }
+    var obj = Object.create(Car.methods);
     return obj
 };
 
