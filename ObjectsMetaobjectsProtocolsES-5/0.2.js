@@ -21,7 +21,7 @@ function extend () {
 	return consumer;
 };
 
-var Univers = {
+var Universe = {
 
 	numberOfNeighbours: function (location) {
 
