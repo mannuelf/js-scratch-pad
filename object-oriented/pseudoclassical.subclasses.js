@@ -7,7 +7,10 @@ Car.prototype.move = function () {
 };
 
 var Var = function (loc) {
-	new Car(loc);
+	// this.loc = loc; // bad duplication
+	// new Car(loc); // bad, refers to Car instance and not Van
+	// this = new Car(loc); // bad do not asign to a local version of this
+	// Car(loc); // bad, doesnt work either
 };
 
 
