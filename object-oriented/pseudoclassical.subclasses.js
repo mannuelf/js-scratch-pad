@@ -8,9 +8,10 @@ Car.prototype.move = function () {
 
 var Var = function (loc) {
 	// this.loc = loc; // bad duplication
-	// new Car(loc); // bad, refers to Car instance and not Van
-	// this = new Car(loc); // bad do not asign to a local version of this
-	// Car(loc); // bad, doesnt work either
+	// new Car(loc); // bad, will create a new object. refers to Car instance and not new Van instance
+	// this = new Car(loc); // bad, do not asign to a local version of this
+	// Car(loc); // bad, builds a brand new object that delegates to the Car class, duplicating
+	Car.call(this, loc); // invoke Car function such that its parameter 'this' is bound to the van function
 };
 
 
