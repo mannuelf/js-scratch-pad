@@ -1,7 +1,9 @@
+// Constrcutor function, speficy how each instance should be differnet
 var Car = function(loc) {
 	obj.loc = loc;
 };
 
+// specify how all instance of a class should be similar
 Car.prototype.move = function() {
 	this.loc++;
 }
