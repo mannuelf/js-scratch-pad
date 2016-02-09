@@ -6,7 +6,7 @@ Car.prototype.move = function () {
 	this.loc++;
 };
 
-var Var = function (loc) {
+var Van = function (loc) {
 	// this.loc = loc; // bad duplication
 	// new Car(loc); // bad, will create a new object. refers to Car instance and not new Van instance
 	// this = new Car(loc); // bad, do not asign to a local version of this
