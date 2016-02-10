@@ -18,6 +18,8 @@ var Van = function (loc) {
 
 Van.prototype = Object.create(Car.prototype); // prototype delegation without running the constructor function in process
 // Van.prototype = new Car(); // wrong.
+
+Van.prototype.constructor = Van; // add a coreeclty linked constructor to Van
 Van.prototype.grab = function () {
 
 };
