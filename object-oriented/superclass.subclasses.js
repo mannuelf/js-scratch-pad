@@ -1,4 +1,4 @@
-// constructo function
+// constructor function
 var Car = function () {
 	var obj = { loc: loc };
 	obj.move = function () {
