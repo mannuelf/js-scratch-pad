@@ -24,8 +24,6 @@ Van.prototype.grab = function () {
 
 };
 
-
-
 var zed = new Car(3);
 zed.move();
 console.log('zed:', zed.loc);
