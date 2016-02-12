@@ -24,5 +24,5 @@ task3.save();
 task4.save();
 
 // drawbacks
-// the functions  is recreated for every task objec that we create a copy of. not iffecient
+// the function is recreated for every task objec that we create a copy of. not iffecient
 // rather use 'prototype', encapsulation of properties and methods that a function links back to.
