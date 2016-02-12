@@ -1,16 +1,21 @@
 var Task = function (name) {
 	this.name = name;
 	this.completed = false;
-
-	this.complete = function () {
-		console.log('completing task: ' + this.name);
-		this.completed = true;
-	}
-
-	this.save = function () {
-		console.log('Saving task: ' + this.name);
-	}
 }
+// take the complete and save function out of the task function and have them as prototype constructor
+/*
+name.prototype.methodname = function (arguments) {
+
+};
+*/
+Task.prototype.complete = function () {
+	console.log('completing task: ' + this.name);
+	this.completed = true;
+};
+
+Task.prototype.save = function () {
+	console.log('Saving task: ' + this.name);
+};
 
 // create a new instance of this task
 var task1 = new Task('create a demo for constructors');
