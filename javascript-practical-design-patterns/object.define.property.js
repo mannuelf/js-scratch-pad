@@ -4,3 +4,4 @@ Object.defineProperty(obj, 'name', {
 	enumrable: true,
 	configurable: true
 });
+ 
