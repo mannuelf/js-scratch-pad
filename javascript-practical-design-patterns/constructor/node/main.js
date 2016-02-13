@@ -1,7 +1,8 @@
-var Task = require('./task.js');
+// var Task = require('./task.js');
+var Task = require('./class.js');
 
 // create a new instance of this task
-var task1 = new Task('create a demo for constructors')
+var task1 = new Task('create a demo for constructors');
 var task2 = new Task('create a demo for modules');
 var task3 = new Task('create a demo for singltons');
 var task4 = new Task('create a demo for prototypes');
