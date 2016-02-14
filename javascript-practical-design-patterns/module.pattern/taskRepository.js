@@ -14,8 +14,8 @@ var repo = function () {
 	}
 
 	return {
-		get: ,
-		save:
+		get: get,
+		save: save
 	}
 
 }
