@@ -40,9 +40,9 @@
     "babel-polyfill": "^6.3.14",
     "babel-register": "^6.4.3",
     "babel-runtime": "^6.3.19",
-    "chai": "^3.5.0",
+    "chai": "*",
     "eslint": "^1.10.3",
-    "mocha": "^2.4.5",
+    "mocha": "*",
     "underscore": "^1.8.3"
-  }
+  }, "//": "mocha is out preference, but you can use any test runner you like"
 }
