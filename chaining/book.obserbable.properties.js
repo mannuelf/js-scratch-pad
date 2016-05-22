@@ -1,10 +1,10 @@
 var Book = function (name, price) {
   this.name = function (val) {
-
+    return name;
   };
 
   this.price = function (val) {
-
+    return price;
   };
 
   this.onPriceChanging = function (callback) {
@@ -22,7 +22,7 @@ console.log('The name is: '+ book.name());
 
 console.log('The price is: R' + book.price());
 
-book.onPriceChanging(function, (b, price) {
+book.onPriceChanging(function (b, price) {
   if (price > 100) {
     console.log('System error, price has gone unexpectedly high');
     return false;
