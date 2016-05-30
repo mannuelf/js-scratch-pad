@@ -15,6 +15,9 @@ var Book = function (name, price) {
         };
       }
       price = val;
+      for (var i = 0; i < priceChanged.length; i++) {
+        priceChanged[i]
+      }
     }
     return price;
   };
