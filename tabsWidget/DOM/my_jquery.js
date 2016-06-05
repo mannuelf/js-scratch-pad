@@ -1,7 +1,19 @@
 (function() {
   $ = function(selector) {};
 
-  $.extend = function(target, object) {};
+  $.extend = function(target, object) {
+		for(var prop in object) {
+			/*
+			 * var value = object[prop];
+			 * target[prop] = value;
+			 */
+
+			if( object.hasOwnProperty(prop) ) {
+				target[prop] = object[prop];
+			}
+		}
+		return target;
+	};
 
   // Static methods
   var isArrayLike = function(obj) {};
@@ -40,13 +52,13 @@
     unbind: function(eventName, handler) {},
     has: function(selector) {
       var elements = [];
-	
+
       $.each(this, function(i, el) {
         if(el.matches(selector)) {
           elements.push(el);
         }
       });
-    
+
       return $( elements );
     },
     on: function(eventType, selector, handler) {
