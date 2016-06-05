@@ -18,7 +18,7 @@
 			1, 0, 0, 0, 0,
 			false, false, false, false,
 			0, null);
-			el.dispatchEvent(event); 
+			el.dispatchEvent(event);
 		};
 
 		module('$ functional utils');
@@ -66,7 +66,7 @@
 				else ok(false,'called back with a bad index');
 			});
 			equal(collection, res);
-			
+
 			var collection = {0:'a', 1:'b', length: 2};
 			var res = $.each(collection, function(index, value){
 				if(index === 0 )	equal(value, 'a');
@@ -109,10 +109,10 @@
 
 		test('new $(selector)', function(){
 			document.getElementById('qunit-fixture').innerHTML = '<ul id="contacts"><li class="contact"/><li class="contact"/></ul>';
-			
+
 			var $contacts = new $('#contacts li.contact');
 			equal( $contacts.length,  2, 'There are 2 contacts');
-			
+
 			equal( $contacts[0].nodeName.toLowerCase(), 'li', 'got an li');
 			equal( $contacts[1].className, 'contact', 'got a .contact');
 		});
@@ -126,16 +126,16 @@
 		});
 
 		test('$.fn.val', function(){
-			
+
 			new $('#qunit-fixture').html('<input type="text" class="age"/><input type="text" class="age"/>');
-			
-			
+
+
 			equal( new $('.age').val(), '', 'Input is initially empty');
-			
+
 			new $('.age').val('Hi There');
-			
+
 			equal( new $('.age').val(), 'Hi There', 'First .age value set correctly');
-			
+
 			equal( new $('.age:nth-child(2)').val(), 'Hi There', 'Second .age value set correctly');
 		});
 
@@ -150,15 +150,15 @@
 		});
 
 		test('$.fn.text', function(){
-			
+
 			$('#qunit-fixture').html('Hi <span>there</span>.');
-			
+
 			equal( $('#qunit-fixture').text(), 'Hi there.', 'The text is right');
-			
+
 			$('#qunit-fixture span').text('<input/>');
-			
+
 			equal( $('#qunit-fixture input').length, 0, 'there\'s no input');
-			
+
 			equal( $('#qunit-fixture span').text(), '<input/>', 'The text is what we sent' );
 		});
 
@@ -166,7 +166,7 @@
 			var $ul = $('#qunit-fixture')
 				.html('<ul><li/><li/></ul><ul><li/><li/></ul>')
 				.find('ul');
-			
+
 			equal($ul.length, 2, 'got 2 uls');
 			equal($ul.find('li').length, 4, 'got four lis');
 		});
@@ -175,7 +175,7 @@
 			var $ul = $('#qunit-fixture')
 				.html('<ul><li/><li/></ul><ul><li/><li/></ul>')
 				.children();
-			
+
 			equal($ul.length, 2, 'got 2 uls');
 			equal($ul.children().length, 4, 'got four lis');
 		});
@@ -184,7 +184,7 @@
 			var $lis = $('#qunit-fixture')
 				.html('<ul><li/><li/></ul><ul><li/><li/></ul>')
 				.find('li:first-child');
-			
+
 			equal($lis.length, 2, 'got 2 uls');
 			equal($lis.parent().length, 2, 'got 2 lis');
 		});
@@ -193,7 +193,7 @@
 			var $lis = $('#qunit-fixture')
 				.html('<ul> <li></li> <li></li> </ul> <ul> <li></li> <li></li> </ul>')
 				.find('li:first-child');
-			
+
 			equal($lis.length, 2, 'got 2 lis');
 			equal($lis.next().length, 2, 'got 2 lis');
 			equal($lis.next().next().length, 0, 'got 0 lis');
@@ -203,7 +203,7 @@
 			var $lis = $('#qunit-fixture')
 				.html('<ul><li/><li/></ul><ul><li/><li/></ul>')
 				.find('li:last-child');
-			
+
 			equal($lis.length, 2, 'got 2 uls');
 			equal($lis.prev().length, 2, 'got 2 lis');
 			equal($lis.prev().prev().length, 0, 'got 2 lis');
@@ -211,16 +211,16 @@
 
 		test('$.fn.attr', function(){
 			equal( $('#qunit-fixture').attr('id'), 'qunit-fixture' ,'can read id' );
-			
+
 			$('#qunit-fixture').html('<span></span><span></span>');
-			
+
 			$('#qunit-fixture span').attr('foo','bar');
-			
+
 			equal($('#qunit-fixture span')[0].getAttribute('foo'), 'bar', 'attribute set successfully');
 			equal($('#qunit-fixture span')[1].getAttribute('foo'), 'bar', 'attribute set successfully');
-			
+
 			$('#qunit-fixture span')[0].setAttribute('foo','BAR');
-			
+
 			equal($('#qunit-fixture span').attr('foo'), 'BAR', 'read the first item in the collection\'s attr');
 		});
 
@@ -241,7 +241,7 @@
 
 		test('$.fn.show and $.fn.hide', function(){
 			$('#qunit-fixture').html('<div id="el">text</div>');
-			
+
 			equal( $('#el').hide()[0].style.display, 'none');
 			equal( $('#el').show()[0].style.display, '');
 		});
@@ -260,56 +260,56 @@
 		});
 
 		test('$.fn.bind and $.fn.unbind', function(){
-			
+
 			expect(2);
-			
+
 			$('#qunit-fixture').html('<div id="el">text</div>');
-			
+
 			var handler = function(ev){
 				equal(this.nodeName.toLowerCase(), 'div', 'event called on div');
 				equal(ev.type, 'click', 'click event');
 			}
-			
+
 			$('#el').bind('click',handler);
-		
-             
-            clickIt( $('#el')[0] );      
-              
-             
+
+
+            clickIt( $('#el')[0] );
+
+
             $('#el').unbind('click',handler);
-             
+
             clickIt( $('#el')[0] );
 		});
 
 		test('$.fn.data', function(){
-			
+
 			$('#qunit-fixture').html('<div id="el">text</div>');
-			
+
 			$('#el').data('foo', 'bar');
-			
+
 			equal( $('#el').data('foo'), 'bar' ,'got back bar' );
 		});
 
 		test('$.fn.on and $.fn.off', function(){
 			expect(3);
-			
+
 			var handler = function(){
 				equal(this.nodeName.toLowerCase(), 'li', 'called back with an LI')
 			}
-		
+
 			var $ul = $('#qunit-fixture').html('<ul><li><span id="one"/></li><li><span id="two"/></li></ul>')
 				.children()
-				
+
 			$ul.on('click', 'li', handler);
 
 			clickIt( $('#one')[0] );
 			clickIt( $('#two')[0] );
-			
+
 			$ul.html('<li><span id="three"></span></li>');
 			clickIt( $('#three')[0] );
-			
+
 			$ul.off('click', 'li', handler);
-			
+
 			clickIt( $('#three')[0] );
 		});
 
@@ -321,25 +321,25 @@
 				});
 				return c;
 			};
-			
+
 			var $divs = $('#qunit-fixture').html('<div class="foo"></div><div class="foob"></div>')
 				.children();
-			
+
 			$divs.addClass('foo');
-			
+
 			equal( 1, count( /foo/,$divs[0].className ), 'only one foo' );
 			equal( 1, count( /foo/,$divs[1].className ), 'only one foo' );
-			
-			
+
+
 			$divs.addClass('foob');
-			
+
 			equal( 1, count( /foob/,$divs[0].className ), 'only one foo' );
 			equal( 1, count( /foob/,$divs[1].className ), 'only one foo' );
-			
+
 			$divs.removeClass('foob');
 			equal( 0, count( /foob/,$divs[0].className ), 'only one foo' );
 			equal( 0, count( /foob/,$divs[1].className ), 'only one foo' );
-			
+
 			$divs.removeClass('foo');
 			equal( 0, count( /foo/,$divs[0].className ), 'only one foo' );
 			equal( 0, count( /foo/,$divs[1].className ), 'only one foo' );

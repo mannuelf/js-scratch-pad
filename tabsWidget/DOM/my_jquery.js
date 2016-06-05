@@ -1,5 +1,16 @@
 (function() {
-  $ = function(selector) {};
+  $ = function(selector) {
+		if(!(this instanceof $)) {
+			return new $(selector);
+		}
+		var elements;
+		if(typeof selector === "string") {
+			elements = document.querySelectorAll(selector);
+		} else if ($.isArray(selector)) {
+			elements = selector;
+		}
+		[].push.apply(this, elements);
+	};
 
   $.extend = function(target, object) {
 		for(var prop in object) {
@@ -47,8 +58,20 @@
 				return collection;
 			}
 		},
-    makeArray: function(arr) {},
-    proxy: function(fn, context) {}
+    makeArray: function(arr) {
+			var array = [];
+			$.each(arr, function(i, value) {
+				array.push(value);
+			});
+			return array;
+		},
+    proxy: function(fn, context) {
+			return function() {
+				fn.apply(context, arguments) {
+
+				}
+			}
+		}
   });
 
   $.extend($.prototype, {
