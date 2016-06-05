@@ -23,7 +23,7 @@
 			} else if( obj.length > 0 ) {
 				return (obj.length - 1 ) in obj;
 			}
-		} 
+		}
 		return false;
 	};
 
@@ -31,7 +31,22 @@
     isArray: function(obj) {
 			return Obeject.prototype.toString.call(obj) === "[object Array]";
 		},
-    each: function(collection, cb) {},
+    each: function(collection, cb) {
+			if ( isArrayLike(collection) ) {
+				for( var i = 0; i < collection.length; i++ ) {
+					var value = collection[i];
+					cb.call(value, i, value);
+				} else {
+					for( var prop in collection ) {
+						if( collection.hasOwnProperty(prop) ) {
+							var value = collection[prop];
+							cb.call(value, prop, value);
+						}
+					}
+				}
+				return collection;
+			}
+		},
     makeArray: function(arr) {},
     proxy: function(fn, context) {}
   });
