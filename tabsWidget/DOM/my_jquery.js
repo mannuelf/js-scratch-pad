@@ -16,10 +16,21 @@
 	};
 
   // Static methods
-  var isArrayLike = function(obj) {};
+  var isArrayLike = function(obj) {
+		if( typeof obj.length === "number") {
+			if( obj.length === 0 ) {
+				return true;
+			} else if( obj.length > 0 ) {
+				return (obj.length - 1 ) in obj;
+			}
+		} 
+		return false;
+	};
 
   $.extend($, {
-    isArray: function(obj) {},
+    isArray: function(obj) {
+			return Obeject.prototype.toString.call(obj) === "[object Array]";
+		},
     each: function(collection, cb) {},
     makeArray: function(arr) {},
     proxy: function(fn, context) {}
