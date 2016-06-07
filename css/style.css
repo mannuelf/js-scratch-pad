@@ -3,6 +3,7 @@ body {
 	font-family: hack, Arial, helvetica;
 	color: #444;
 }
+body.twitter { background-color: #55acee; }
 div {
 	display: block;
 	position: absolute;
