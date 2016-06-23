@@ -1,4 +1,4 @@
 
-var Hello = require('./functions.js');
-
-console.log('Hello');
+var factorialFunction = require('./factorial.function');
+var SubProcedureFunction = require('./subprocedure.function');
+var Scope = require('./scope');
