@@ -4,8 +4,9 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var reload = browserSync.reload;
 
+
 gulp.task('eslint', function() {
-  return gulp.src(['./**/*.js'])
+  return gulp.src(['./src/**/*.js'])
   .pipe(eslint())
   .pipe(eslint.result(function(result) {
     console.log('ESLint result: ' + result.filPath);
@@ -17,18 +18,17 @@ gulp.task('eslint', function() {
   .pipe(eslint.failAfterError());
 });
 
-gulp.task('lint', function() {
-  gulp.watch(['./**/*.js'], ['lint']);
+gulp.task('lint-functions', function() {
+  gulp.watch(['./src/**/*.js'], ['lint']);
 });
 
 // Static Server + watching scss/html files
 gulp.task('default', function() {
   browserSync.init({
-    server: "./"
+    server: "./app/"
   });
-  gulp.watch("app/sass/*.scss", ['sass']);
-  gulp.watch("./*/**/*.html").on('change', reload);
-  gulp.watch("./*/**/*.js").on('change', reload);
+  gulp.watch(["!./node_modules", "!./bower_components","./src/**/*.js"]).on('change', reload);
+	gulp.watch("./**/*.html").on('change', reload);
 });
 
 // Compile sass into CSS & auto-inject into browsers

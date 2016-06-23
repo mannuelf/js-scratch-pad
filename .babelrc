@@ -1,12 +1,13 @@
 {
   "presets": [
-     "es2015",
-     "react",
-     "transform-runtime",
-     "transform-es2015-classes"
-   ],
-  "plugins": [
-    "transform-es2015-classes"
-    ["transform-es2015-classes", {"loose": true}]
-  ]
+    "es2015",
+    "react"
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        "react-hmre"
+      ]
+    }
+  }
 }
