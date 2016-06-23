@@ -46,29 +46,13 @@
 
 	'use strict';
 
-	var factorialFunction = __webpack_require__(4);
-	var SubProcedureFunction = __webpack_require__(3);
-	var Scope = __webpack_require__(6);
+	var factorialFunction = __webpack_require__(1);
+	var SubProcedureFunction = __webpack_require__(2);
+	var Scope = __webpack_require__(3);
+	var Checking = __webpack_require__(4);
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	function curve(arr, amount) {
-		for (var i = 0; i < arr.length; ++i) {
-			arr[i] += amount;
-		}
-	}
-	var grades = ['33', '45', '88'];
-	curve(grades, 5);
-	console.log('Grades', grades);
-
-/***/ },
-/* 4 */
+/* 1 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -86,8 +70,22 @@
 	console.log(factorial(10));
 
 /***/ },
-/* 5 */,
-/* 6 */
+/* 2 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	function curve(arr, amount) {
+		for (var i = 0; i < arr.length; ++i) {
+			arr[i] += amount;
+		}
+	}
+	var grades = ['33', '45', '88'];
+	curve(grades, 5);
+	console.log('Grades', grades);
+
+/***/ },
+/* 3 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -101,6 +99,47 @@
 
 	console.log('I am', scope);
 	console.log('I am', showScope());
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	function Checking(amount) {
+		this.balance = amount;
+		this.deposit = deposit;
+		this.withdraw = withdraw;
+		this.toString = toString;
+	}
+
+	// the this keyword is used to tie each function and property to an object instance
+
+	function deposit(amount) {
+		this.balance += amount;
+	}
+
+	function withdraw(amount) {
+		if (amount <= this.balance) {
+			this.balance -= amount;
+		}
+
+		if (amount > this.balance) {
+			console.log("Insuficient Funds!!");
+		}
+	}
+
+	function toString() {
+		return "Balance: " + this.balance;
+	}
+
+	var account = new Checking(500);
+	account.deposit(1000);
+	console.log(account.toString());
+	account.withdraw(750);
+	console.log(account.toString());
+	account.withdraw(800);
+	console.log(account.toString());
 
 /***/ }
 /******/ ]);
