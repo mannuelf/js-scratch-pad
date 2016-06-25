@@ -50,6 +50,8 @@
 	var SubProcedureFunction = __webpack_require__(2);
 	var Scope = __webpack_require__(3);
 	var Checking = __webpack_require__(4);
+	var Arrays = __webpack_require__(5);
+	var ArraysAccessingWriting = __webpack_require__(6);
 
 /***/ },
 /* 1 */
@@ -140,6 +142,39 @@
 	console.log(account.toString());
 	account.withdraw(800);
 	console.log(account.toString());
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var numbers = ['1', '2', '3', '4', '5'];
+
+	// array constructor
+	var numbers2 = new Array(6, 7, 8, 9, 10, 11);
+
+	var numbers3 = '4';
+	var numbers4 = ['1', '2', '3'];
+
+	console.log('arrays:', numbers.length, numbers2.length);
+	console.log('numbers3: is it an array?', Array.isArray(numbers3));
+	console.log('numbers4: is it an array?', Array.isArray(numbers4));
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var nums = ['1', '2', '3', '4', '5'];
+	var sum = 0;
+
+	for (var i = 0; i < nums.length; ++i) {
+		sum += nums[i];
+	}
+
+	console.log('accessingarrays:', sum);
 
 /***/ }
 /******/ ]);
