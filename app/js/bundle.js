@@ -52,6 +52,7 @@
 	var Checking = __webpack_require__(4);
 	var Arrays = __webpack_require__(5);
 	var ArraysAccessingWriting = __webpack_require__(6);
+	var ArraysStrings = __webpack_require__(7);
 
 /***/ },
 /* 1 */
@@ -169,12 +170,27 @@
 
 	var nums = ['1', '2', '3', '4', '5'];
 	var sum = 0;
+	var sum2 = nums[0] + nums[1] + nums[2] + nums[3] + nums[4];
 
 	for (var i = 0; i < nums.length; ++i) {
 		sum += nums[i];
 	}
 
 	console.log('accessingarrays:', sum);
+	console.log('accessingarrays:', sum2);
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var sentence = 'Portugal have been playing in the European Championships';
+	var words = sentence.split(" ");
+
+	for (var i = 0; i < words.length; ++i) {
+		console.log('word' + i + ': ' + words[i]);
+	}
 
 /***/ }
 /******/ ]);
