@@ -6,4 +6,4 @@ function curve(arr, amount) {
 }
 var grades = ['33', '45', '88'];
 curve(grades, 5);
-console.log('Grades', grades);
+console.log('Grades', grades)
