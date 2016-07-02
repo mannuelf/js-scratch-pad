@@ -53,6 +53,7 @@
 	var Arrays = __webpack_require__(5);
 	var ArraysAccessingWriting = __webpack_require__(6);
 	var ArraysStrings = __webpack_require__(7);
+	var IteratorFunctions = __webpack_require__(8);
 
 /***/ },
 /* 1 */
@@ -191,6 +192,20 @@
 	for (var i = 0; i < words.length; ++i) {
 		console.log('word' + i + ': ' + words[i]);
 	}
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	function square(num) {
+	    console.log('square', num, num + num);
+	}
+
+	var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+	nums.forEach(square);
 
 /***/ }
 /******/ ]);
