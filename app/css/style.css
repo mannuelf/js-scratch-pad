@@ -1,5 +1,5 @@
 body {
-	background-color: yellow;
+	background-color: #333;
 	font-family: hack, Arial, helvetica;
 	color: #444;
 }
@@ -13,9 +13,11 @@ div {
 
 h1 {
 	font-size: 3em;
+	color: yellow;
 }
 
 h2 {
 	font-size: 1em;
 	text-transform: uppercase;
+	color: yellow;
 }
