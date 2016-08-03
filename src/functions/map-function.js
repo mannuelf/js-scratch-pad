@@ -23,6 +23,9 @@ var namesAndOs = phones.map(function(phones) {
 	return phones.name + ' is a ' + phones.os;
 });
 
+var namesArrowFunction = phones.map((phones) => phones.name);
+
 console.log('Non Functional: Names\n', names);
 console.log('Functional: Names\n', names2);
 console.log('Functional: NamesAndOs\n', namesAndOs);
+console.log('Arrow Function: NamesAndOs\n', namesArrowFunction);
