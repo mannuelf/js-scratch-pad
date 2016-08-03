@@ -1,31 +1,31 @@
-var gulp = require('gulp')
-var gutil = require('gulp-util')
+var gulp = require('gulp');
+var gutil = require('gulp-util');
 var browserSync = require('browser-sync').create()
-var eslint = require('gulp-eslint')
-var sass = require('gulp-sass')
-var reload = browserSync.reload
+var eslint = require('gulp-eslint');
+var sass = require('gulp-sass');
+var reload = browserSync.reload;
 
-var webpack = require('webpack')
-var WebpackDevServer = require("webpack-dev-server")
-var webpackConfig = require("./webpack.config.js")
+var webpack = require('webpack');
+var WebpackDevServer = require("webpack-dev-server");
+var webpackConfig = require("./webpack.config.js");
 
 // The development server (the recommended option for development)
-gulp.task('default', ['webpack-dev-server'])
+gulp.task('default', ['webpack-dev-server']);
 
 // Build and watch cycle (another option for development)
 // Advantage: No server required, can run app from filesystem
 // Disadvantage: Requests are not blocked until bundle is available,
 // can serve an old app on refresh
 gulp.task('build-dev', ['webpack:build-dev'], function() {
-  gulp.watch(['./app/**/*'], ['webpack:build-dev'])
-})
+  gulp.watch(['./app/**/*'], ['webpack:build-dev']);
+});
 
 // Build Production
-gulp.task('build', ['webpack:build'])
+gulp.task('build', ['webpack:build']);
 
 gulp.task("webpack:build", function(callback) {
 	// modify some webpack config options
-	var myConfig = Object.create(webpackConfig)
+	var myConfig = Object.create(webpackConfig);
 	myConfig.plugins = myConfig.plugins.concat(
 		new webpack.DefinePlugin({
 			"process.env": {
@@ -45,7 +45,7 @@ gulp.task("webpack:build", function(callback) {
 		}))
 		callback()
 	})
-})
+});
 
 // modify some webpack config options
 var myDevConfig = Object.create(webpackConfig)
@@ -64,7 +64,7 @@ gulp.task("webpack:build-dev", function(callback) {
 		}))
 		callback()
 	})
-})
+});
 
 gulp.task("webpack-dev-server", function(callback) {
 	// modify some webpack config options
@@ -82,7 +82,7 @@ gulp.task("webpack-dev-server", function(callback) {
 		if(err) throw new gutil.PluginError("webpack-dev-server", err)
 		gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html")
 	})
-})
+});
 
 gulp.task('eslint', function() {
   return gulp.src(['./src/**/*.js'])
@@ -95,7 +95,7 @@ gulp.task('eslint', function() {
   }))
   .pipe(eslint.format())
   .pipe(eslint.failAfterError())
-})
+});
 
 gulp.task('lint-functions', function() {
   gulp.watch(['./src/**/*.js'], ['lint'])
@@ -108,7 +108,7 @@ gulp.task('default', function() {
   })
   gulp.watch(["!./node_modules", "!./bower_components","./src/**/*.js"]).on('change', reload)
 	gulp.watch("./**/*.html").on('change', reload)
-})
+});
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
@@ -116,4 +116,4 @@ gulp.task('sass', function() {
     .pipe(sass())
     .pipe(gulp.dest("app/css"))
     .pipe(reload({stream: true}))
-})
+});
