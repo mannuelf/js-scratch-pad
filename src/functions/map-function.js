@@ -5,22 +5,24 @@ var phones = [
 	{ name: 'iPhone', model: '6', os: 'IOS' },
 	{ name: 'iPhone', model: '6S', os: 'IOS' },
 	{ name: 'Huawie', model: 'Ascend P7', os: 'Android' },
+	{ name: 'Nexus', model: 'S6', os: 'Android' },
 ];
 
 // non functional way
-var androids = [];
+var names = [];
 for (var i = 0; i < phones.length; i++) {
-	if (phones[i].os === 'Android') {
-		androids.push(phones[i]);
-	}
+	names.push(phones[i].name);
 }
 
 // functional way
-var isIphone = function(phones) {
-	return phones.os === 'IOS'
-}
+var names2 = phones.map(function(phones) {
+	return phones.name;
+});
 
-var applephones = phones.filter(isIphone);
+var namesAndOs = phones.map(function(phones) {
+	return phones.name + ' is a ' + phones.os;
+});
 
-console.log('Androids\n', androids);
-console.log('iPhones\n', applephones);
+console.log('Non Functional: Names\n', names);
+console.log('Functional: Names\n', names2);
+console.log('Functional: NamesAndOs\n', namesAndOs);
