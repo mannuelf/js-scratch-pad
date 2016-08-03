@@ -20,12 +20,12 @@ var names2 = phones.map(function(phones) {
 });
 
 var namesAndOs = phones.map(function(phones) {
-	return phones.name + ' is a ' + phones.os;
+	return phones.name + ' is a ' + phones.os + ' device';
 });
 
 var namesArrowFunction = phones.map((phones) => phones.name);
 
-console.log('Non Functional: Names\n', names);
-console.log('Functional: Names\n', names2);
-console.log('Functional: NamesAndOs\n', namesAndOs);
-console.log('Arrow Function: NamesAndOs\n', namesArrowFunction);
+console.log('Non Functional Names:\n', names);
+console.log('Functional Names"\n', names2);
+console.log('Functional NamesAndOs:\n', namesAndOs);
+console.log('Arrow Function names:\n', namesArrowFunction);
