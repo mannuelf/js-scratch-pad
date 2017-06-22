@@ -1,8 +1,8 @@
-var add = function(flock_x, flock_y) {
+var add = function(x, y) {
 	return flock_x + flock_y;
 };
 
-var multiply = function(flock_x, flock_y) {
+var multiply = function(x, y) {
 	return flock_x * flock_y;
 };
 
