@@ -1,0 +1,4 @@
+/*
+    Closure
+    Excerpts from www.eloquentjavascript.net
+*/

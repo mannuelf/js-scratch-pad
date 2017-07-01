@@ -1,6 +1,6 @@
 // The stack
 /*
-    Excerpt from Elequent JavaScript
+    Excerpts from www.eloquentjavascript.net    
     when a function is called, controll is given to the body of that function
     when that body returns the code that called the function is resumed
     thus while the body is running the computer must remember the context from which the function was called so that it knows where to continue afterwards.
