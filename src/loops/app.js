@@ -26,6 +26,7 @@ console.log(current);
 
 // Updating variables succinctly
 // Dispatching on a value
+var variable = '';
 if (variable == 'value1') {
 	action1();
 } else if (variable == 'value2') {
@@ -44,3 +45,13 @@ switch(promt('what is the weather like?')) {
 	console.log('brin sun screen');
 	break;
 }
+
+// functions
+function power(base, exponent) {
+	var result = 1; // this variable is local to this function
+	for (var count = 0; count < exponent; count++) {
+		result *= base;
+		return result;
+	}
+}
+power(2, 10);
