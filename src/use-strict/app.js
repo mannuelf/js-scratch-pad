@@ -7,12 +7,11 @@ function helloWorld() {
 
 helloWorld();
 
-
+"use strict";
 manny = "Mannuel Ferreira";
 console.log(window.manny);
 
 
-"use strict";
 var theVal = 0;
 
 theVal = 1;
@@ -20,3 +19,11 @@ theVal = 1;
 if (theVal > 0) {
     console.log("Hi there");
 }
+
+
+"use strict";
+var let = 1
+console.log(let);
+
+var foo = 1;
+delete foo;
