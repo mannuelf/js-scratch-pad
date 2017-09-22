@@ -17,3 +17,6 @@ console.log(typeof('FC Porto'));
 console.log(typeof(true));
 console.log(typeof(undefined));
 console.log(typeof(null));
+
+var a = null;
+console.log(a);

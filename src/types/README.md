@@ -35,3 +35,5 @@ typeof(a); // string
 a = 1;
 typeof(a); // integer
 ```
+
+In JavaScript `null` is a value and `undefined` is a value
