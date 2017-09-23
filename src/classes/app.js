@@ -16,9 +16,12 @@ User.prototype.changeEmail = function(newEmail) {
 	this.email = newEmail;
 }
 
+User.prototype.changeName = function(newUserName) {
+	this.username = newUserName;
+}
+
 var mannuel = new User('Mannuel Ferreira', 'mannuel@email.com');
 
 mannuel.changeEmail('manny@email.com');
-
+mannuel.changeName('Joey');
 console.dir(mannuel);
-
