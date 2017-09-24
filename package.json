@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/manidf/js102#readme",
   "dependencies": {
+    "babel-preset-env": "^1.6.0",
     "browser-sync": "^2.18.12",
     "gulp": "^3.9.1",
     "gulp-eslint": "^4.0.0",
