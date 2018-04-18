@@ -59,4 +59,16 @@ for (let i = 0; i < cryptoCurrencies.length; i++) {
 		filteredCurrency.push(cryptoCurrencies[i]);
 	}
 }
-console.log(filteredCurrency);
+console.log(JSON.stringify(filteredCurrency));
+// console.log(filteredCurrency);
+
+cryptoCurrencies.filter((cryptoCurrency) => {
+	return cryptoCurrency.symbol === 'BTC';
+});
+// produces a truthy value
+// true
+// false
+// false
+// false
+
+
