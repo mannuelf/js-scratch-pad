@@ -1,4 +1,5 @@
 let coins = [{
+		"id": 1,
 		"name": "XRP",
 		"high": "1426.93",
 		"last": "1404.99",
@@ -11,6 +12,7 @@ let coins = [{
 		"open": "1425.21"
 	},
 	{
+		"id": 2,
 		"name": "BTC",
 		"high": "566.84",
 		"last": "562.43",
@@ -23,6 +25,7 @@ let coins = [{
 		"open": "544.87"
 	},
 	{
+		"id": 3,
 		"name": "ETH",
 		"high": "0.15359999",
 		"last": "0.15032205",
@@ -36,21 +39,16 @@ let coins = [{
 	},
 ]
 
-for (let i = 0; i < coins.length; i++) {
-	if (coins[i].name === 'BTC') {
-        coin = coins[i]
-    }
-    if (coins[i].name === 'ETH') {
-        coin = coins[i]
-    }
-    if (coins[i].name === 'XRP') {
-        coin = coins[i]
-    }
+let xrp = { id: 1 }
+let bitcoin = { id: 2 }
+let etherium  = { id: 3 }
+
+function getBitcoin(coins) {
+	return coins.find((coin) => {
+		return coin.id === bitcoin.id
+	})
 }
 
-coins
+getBitcoin(coins)
 
-coins.find((coin) => {
-    return coin.name === 'BTC'
-    console.log(coin.name === 'BTC')
-})
+console.log(getBitcoin(coins));
