@@ -11,3 +11,14 @@ let hasSubmitted = users.every((user) => {
 
 // will return false because the iterator function will 
 // find at least on falsey value
+
+
+let requests = [
+    { url: '/photos', status: 'complete' },
+    { url: '/albums', status: 'pending' },
+    { url: '/users', status: 'failed' }
+];
+  
+let inProgress = requests.some((request) => {
+    return request.status === 'pending';
+});
