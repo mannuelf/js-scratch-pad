@@ -36,3 +36,11 @@ function createAdminUser( user = new User(generateId()) ) {
 
 let user = new User(generateId())
 createAdminUser(user)
+
+
+
+// 3. 
+
+function sum(a = 0, b = 0) {
+    return a + b;
+}
