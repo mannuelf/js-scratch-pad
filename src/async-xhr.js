@@ -1,11 +1,15 @@
 // an asynchronous XHR request
 function makeRequest() {
-	let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 	let async = true;
 	let xhr = new XMLHttpRequest();
 	let apiRequest = 'https://api.cryptonator.com/api/ticker/btc-usd';
 
 	xhr.open('get', apiRequest, async);
+	xhr.overrideMimeType('application/json');
+	xhr.onload = function() {
+		let jsonResponse = JSON.parse(xhr.responseText);
+		console.log(jsonResponse);
+	}
 	xhr.send();
 
 	// bad for illustrative purpose, not for production code.
