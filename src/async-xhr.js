@@ -1,5 +1,6 @@
 // an asynchronous XHR request
 function makeRequest() {
+	let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 	let async = true;
 	let xhr = new XMLHttpRequest();
 	let apiRequest = 'https://api.cryptonator.com/api/ticker/btc-usd';
