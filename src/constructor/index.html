@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Constructor</title>
+	<style>
+		body {
+			background: #FFF;
+		}
+		.nike {
+			position: relative;
+			top: 20px; left: 20px;
+			margin-top: -1px;
+			width: 470px; height: 200px;
+			border: 1px solid gray;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 40px;
+			line-height: 300px;
+			text-indent: 350px;
+			z-index: 3;
+			overflow: hidden;
+		}
+		.nike:before {
+			content: "";
+			position: absolute;
+			top: -250px; left: 190px;
+			width: 150px; height: 550px;
+			background: purple;
+			border-top-left-radius: 60px 110px;
+			border-top-right-radius: 130px 220px;
+			transform: rotate(-113deg);
+			z-index: 1;
+		}
+		.nike:after {
+			content: "";
+			position: absolute;
+			top: -235px; left: 220px;
+			width: 120px; height: 500px;
+			background: white;
+			border-top-left-radius: 60px 110px;
+			border-top-right-radius: 130px 220px;
+			transform: rotate(-104deg);
+			z-index: 2;
+		}
+		.nike:nth-child(2):before {
+			background: black;
+		}
+		.nike:nth-child(3):before {
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<a href="/">Hello</a>
+	<div class="nike">Nike 1</div>
+	<div class="nike">Nike 2</div>
+	<div class="nike">Nike 3</div>
+
+	<script src="./index.js"></script>
+	<script>
+
+		let nodeAnchor = document.querySelector('a')
+		let props = [];
+		for (var key in nodeAnchor) {
+			props.push(key)
+		}
+		console.log(props)
+		console.log(props.sort());
+
+		for(var key in Node) {
+			// console.log(key, ' = ', +Node[key]);
+		}
+	</script>
+</body>
+
+</html>
