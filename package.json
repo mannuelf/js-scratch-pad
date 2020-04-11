@@ -1,7 +1,7 @@
 {
   "name": "js102",
   "version": "1.0.0",
-  "description": "Is an open happy place where I can write JavaScript for fun and learning.",
+  "description": "Tinkering with JavaScript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
