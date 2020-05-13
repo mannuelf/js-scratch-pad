@@ -1,4 +1,5 @@
 .vscode
+.swp
 .idea
 npm-debug.*
 node_modules
