@@ -3,12 +3,25 @@ const app = (() => {
 	"use strict"
 	console.log("hello world");
 
+	const apiURL = "https://api.tvmaze.com/shows?page=1";
+
 	const moduleA = () => {
-		console.log("module a says hi");
+		fetch(apiURL)
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+				const movies = data;
+				console.log(movies);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+		console.log("getting movies");
 	}
 
 	const moduleB = () => {
-		console.log("module be says hi");
+		console.log("module b says hi");
 	}
 
 	const moduleC = () => {
