@@ -12,19 +12,16 @@ class Counters extends Component {
 	};
 
 	handleIncrement = (counter) => {
-		console.log(counter);
 		const counters = [...this.state.counters]; // clone state array, make copy
 		const index = counters.indexOf(counter); // find the index of the counter being click or incremented
 		counters[index] = {...counter};
 		counters[index].value++;
-		this.setState(
-			{counters}
-		)
+		this.setState({counters}); // new modified array
 	}
 
 	handleDelete = (counterId) => {
 		const counters = this.state.counters.filter(c => c.id !== counterId);
-		this.setState({counters: counters});
+		this.setState({counters: counters}); // new modified array
 	}
 
 	handleReset = () => {
@@ -32,7 +29,7 @@ class Counters extends Component {
 			c.value = 0;
 			return c;
 		});
-		this.setState({counters: counters});
+		this.setState({counters: counters}); // new modified array
 	}
 
 	render() {
