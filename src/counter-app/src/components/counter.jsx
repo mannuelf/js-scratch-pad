@@ -2,36 +2,16 @@ import React, {Component, Fragment} from "react";
 
 class Counter extends Component {
 	state = {
-		value: this.props.value,
-		tags: [],
-		imageUrl: "https://picsum.photos/200"
+		value: this.props.counter.value,
 	};
 
-	//constructor() {
-	//	super();
-	//	this.handleIncrement = this.handleIncrement().bind(this);
-	//}
-
-	renderTags() {
-		if (this.state.tags.length === 0) return <p>There are no tags</p>;
-		return <ul>{this.state.tags.map((tag, index) => <li key={index}>{tag}</li>)}</ul>
-	}
-
 	handleIncrement = () => {
-		this.setState({count: this.state.value + 1});
-	}
-
-	doHandleIncrement = (product) => {
-		// dont build wrapper functions, rather do inline ones L38
-		console.log(product)
-		this.handleIncrement({id: 1});
+		this.setState({value: this.state.value + 1});
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<div>
-				{this.props.children}
 				<span className={this.getBadgeClasses()}>
 					{this.formatCount()}
 				</span>
@@ -42,6 +22,11 @@ class Counter extends Component {
 				>
 					Increment
 				</button>
+
+				<button
+					onClick={() => this.props.onDelete(this.props.counter.id)}
+					className="btn btn-danger btn-sm m-2"
+				>delete</button>
 			</div>
 		);
 	}
