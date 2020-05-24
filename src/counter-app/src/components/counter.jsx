@@ -2,8 +2,8 @@ import React, {Component, Fragment} from "react";
 
 class Counter extends Component {
 	state = {
-		count: 0,
-		tags: ["tag1", "tag2"],
+		value: this.props.value,
+		tags: [],
 		imageUrl: "https://picsum.photos/200"
 	};
 
@@ -18,7 +18,7 @@ class Counter extends Component {
 	}
 
 	handleIncrement = () => {
-		this.setState({count: this.state.count + 1});
+		this.setState({count: this.state.value + 1});
 	}
 
 	doHandleIncrement = (product) => {
@@ -28,35 +28,33 @@ class Counter extends Component {
 	}
 
 	render() {
+		console.log(this.props);
 		return (
 			<div>
+				{this.props.children}
 				<span className={this.getBadgeClasses()}>
 					{this.formatCount()}
 				</span>
 
 				<button
-					onClick={(e) => this.handleIncrement(product)}
+					onClick={(e) => this.handleIncrement()}
 					className="btn btn-secondary btn-sm"
 				>
 					Increment
 				</button>
-
-				{this.state.tags.length === 0 && 'Please create a new tag'}
-
-				{this.renderTags()}
 			</div>
 		);
 	}
 
 	getBadgeClasses() {
 		let classes = "badge m-2 badge-";
-		classes += this.state.count === 0 ? "warning" : "primary";
+		classes += this.state.value === 0 ? "warning" : "primary";
 		return classes;
 	}
 
 	formatCount() {
-		const {count} = this.state;
-		return count === 0 ? "Zero" : count;
+		const {value} = this.state;
+		return value === 0 ? "Zero" : value;
 	}
 }
 
