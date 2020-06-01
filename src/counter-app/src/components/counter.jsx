@@ -1,17 +1,39 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 
 class Counter extends Component {
+	componentDidMount(prevProps, prevState) {
+		console.log("prevProps", prevProps);
+		console.log("prevState", prevState)
+		//if(prevProps.counter.value !== this.props.counter.value) {
+			// do ajax call, fresh data
+		//}
+	}
+
+	componentWillUnmount() {
+		console.log("Counter -unmount")
+	}
+
 	render() {
+		console.log("Counter");
 		return (
-			<div>
+			<div className="row">
 				<span className={this.getBadgeClasses()}>{this.formatCount()}</span>
 
 				<button
-					onClick={(e) => this.props.onIncrement(this.props.counter)}
+					onClick={() => this.props.onIncrement(this.props.counter)}
 					className="btn btn-secondary btn-sm"
 				>
-					Increment
+				+
 				</button>
+
+				<button
+					onClick={() => this.props.onDecrement(this.props.counter)}
+					className="btn btn-secondary btn-sm"
+					disabled={this.props.counter.value.value === 0 ? "disabled" : ""}
+				>
+				-
+				</button>
+
 
 				<button
 					onClick={() => this.props.onDelete(this.props.counter.id)}

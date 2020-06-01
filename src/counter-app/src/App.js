@@ -13,6 +13,24 @@ class App extends Component {
 		]
 	};
 
+	constructor(props) {
+		super(props);
+		console.log("app constructor", this.props)
+	}
+
+	componentDidMount() {
+		// ajax call
+		console.log("app mounted");
+	}
+
+	handleDecrement = (counter) => {
+		const counters = [...this.state.counters]; // clone state array, make copy
+		const index = counters.indexOf(counter); // find the index of the counter being click or incremented
+		counters[index] = {...counter};
+		counters[index].value--;
+		this.setState({counters}); // new modified array
+	}
+
 	handleIncrement = (counter) => {
 		const counters = [...this.state.counters]; // clone state array, make copy
 		const index = counters.indexOf(counter); // find the index of the counter being click or incremented
@@ -34,13 +52,15 @@ class App extends Component {
 		this.setState({counters: counters}); // new modified array
 	}
 
-	render() {
+render() {
+		console.log("app rendered")
 		return (<Fragment>
 			<NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length} />
 			<div className="container">
 				<Counters
 					counters={this.state.counters}
 					onIncrement={this.handleIncrement}
+					onDecrement={this.handleDecrement}
 					onDelete={this.handleDelete}
 					onReset={this.handleReset}
 				/>
