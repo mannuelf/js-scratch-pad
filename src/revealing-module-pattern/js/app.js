@@ -3,21 +3,18 @@ const app = (() => {
 	"use strict"
 	console.log("hello world");
 
-	const apiURL = "https://api.tvmaze.com/shows?page=1";
-
-	const moduleA = () => {
+	const getTvShows = (apiURL) => {
 		fetch(apiURL)
 			.then((response) => {
 				return response.json();
 			})
 			.then((data) => {
 				const movies = data;
-				console.log(movies);
+				return movies;
 			})
 			.catch((error) => {
-				console.log(error);
+				alert(error);
 			});
-		console.log("getting movies");
 	}
 
 	const moduleB = () => {
@@ -29,7 +26,7 @@ const app = (() => {
 	}
 
 	return {
-		moduleA: moduleA,
+		getTvShows: getTvShows, // public methods exposed to the outside world
 		moduleB: moduleB,
 		moduleC: moduleC
 	}

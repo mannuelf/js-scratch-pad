@@ -8,7 +8,7 @@ import Counters from "./components/Counters";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Counters/>
+		<App/>
 	</React.StrictMode>,
 	document.getElementById('root')
 );
