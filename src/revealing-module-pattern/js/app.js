@@ -10,6 +10,7 @@ const app = (() => {
 			})
 			.then((data) => {
 				const movies = data;
+				console.log(movies);
 				return movies;
 			})
 			.catch((error) => {
@@ -17,12 +18,12 @@ const app = (() => {
 			});
 	}
 
-	const moduleB = () => {
-		console.log("module b says hi");
+	const moduleB = (someString) => {
+		console.log("module b says", someString);
 	}
 
-	const moduleC = () => {
-		console.log("module c says hi");
+	const moduleC = (someString) => {
+		console.log("module c says", someString);
 	}
 
 	return {
