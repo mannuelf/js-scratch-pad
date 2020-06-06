@@ -1,14 +1,17 @@
 import React, {Component, Fragment} from 'react';
+import Pagination from "./common/pagination";
 import {getMovies} from "../services/fakeMovieService";
 import Like from "./common/like";
+import { paginate } from "./utils/paginate";
 
 class Movies extends Component {
 	state = {
-		movies: getMovies()
+		movies: getMovies(),
+		currentPage: 1,
+		pageSize: 4
 	}
 
 	handleDelete = (movie) => {
-		console.log(movie);
 		// create new movie array with movies minus deleted one
 		const movies = this.state.movies.filter(m => m._id !== movie._id);
 		this.setState({movies: movies});
@@ -22,10 +25,18 @@ class Movies extends Component {
 		this.setState({ movies });
 	}
 
+	handlePageChange = (page) => {
+		this.setState({ currentPage: page })
+	}
+
 	render() {
 		const {length: count} = this.state.movies;
+		const { pageSize, currentPage, movies } = this.state;
+
 		if (count === 0)
 			return <p>There are no movies inf the database.</p>
+
+		const allMovies = paginate(movies, currentPage, pageSize);
 
 		return (
 			<Fragment>
@@ -42,7 +53,7 @@ class Movies extends Component {
 						</tr>
 					</thead>
 					<tbody>
-					{this.state.movies.map(movie => (
+					{allMovies.map(movie => (
 						<tr key={movie._id}>
 							<td>{movie.title}</td>
 							<td>{movie.genre.name}</td>
@@ -64,6 +75,12 @@ class Movies extends Component {
 					))}
 					</tbody>
 				</table>
+				<Pagination
+					itemsCount={count}
+					pageSize={pageSize}
+					currentPage={currentPage}
+					onPageChange={this.handlePageChange}
+				/>
 			</Fragment>
 		);
 	}
