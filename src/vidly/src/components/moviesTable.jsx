@@ -2,15 +2,15 @@ import React from "react";
 import Like from "./common/like";
 
 const MoviesTable = (props) => {
-	const { movies, onLike, onDelete } = props;
+	const { movies, onLike, onDelete, onSort } = props;
 	return (
 		<table className="table table-striped">
 			<thead>
 				<tr>
-					<th>Title</th>
-					<th>Genre</th>
-					<th>Stock</th>
-					<th>Rate</th>
+					<th onClick={() => onSort()}>Title</th>
+					<th onClick={() => onSort()}>Genre</th>
+					<th onClick={() => onSort()}>Stock</th>
+					<th onClick={() => onSort()}>Rate</th>
 					<th />
 					<th />
 				</tr>
