@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+			integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU="
+			crossorigin="anonymous"
+		/>
+		<title>CSS + JS Clock</title>
+	</head>
+	<body>
+		<div class="clock">
+			<div class="clock-face">
+				<div class="hand hour-hand"></div>
+				<div class="hand hour-hand"></div>
+				<div class="hand hour-hand"></div>
+			</div>
+		</div>
+
+		<footer>
+			<h1>#TIL</h1>
+			<p>
+				Today i learned how to build a clock curtosy of
+				<a href="https://javascript30.com/" alt="Wesbos">Wesbos</a>.
+			</p>
+		</footer>
+		<style>
+			body {
+				background: #000
+					url("https://images.unsplash.com/photo-1504333638930-c8787321eee0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'");
+				background-position: no-repeat;
+				background-size: covern;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			.clock {
+				width: 30rem;
+				height: 30rem;
+				border: 20px solid yellowgreen;
+				border-radius: 50%;
+				margin: 50px auto;
+				position: relative;
+				padding: 2rem;
+				box-shadow: 0 0 0 4px rgba(0, 0, 0), inset 0 0 0 3px #efefef,
+					inset 0 0 0 10px #000000, 0 0 10px rgba(0, 0, 0, 0.2);
+			}
+
+			.clock-face {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				transform: translateY(-3px);
+			}
+
+			.hand {
+				width: 50%;
+				height: 6px;
+				background: yellow;
+				position: absolute;
+				top: 50%;
+				transform-origin: 100%;
+				transform: rotate(90deg);
+				transition: all 0.05s;
+				transition-timing-function: cubic-bezier(0.07, 1.9, 0.58, 1);
+			}
+			footer {
+				background-color: #eee;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+		</style>
+
+		<script>
+			const secondHand = document.querySelector(".second-hand");
+			function setDate(secondHand) {
+				const now = new Date();
+				const seconds = now.getSeconds();
+				const secondsDegrees = (seconds / 60) * 360;
+				secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+			}
+
+			setInterval(setDate, 1000);
+		</script>
+	</body>
+</html>
