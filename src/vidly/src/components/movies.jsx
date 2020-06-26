@@ -82,6 +82,9 @@ class Movies extends Component {
 			<Fragment>
 				<div className="container">
 					<div className="row">
+						<h1>Movies</h1>
+					</div>
+					<div className="row">
 						<div className="col-4">
 							<ListGroup
 								items={this.state.genres}
