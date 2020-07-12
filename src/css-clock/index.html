@@ -1,152 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-			integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU="
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic.min.css"
-		/>
-		<title>CSS + JS Clock</title>
-	</head>
-	<body>
-		<div class="clock">
-			<div class="clock-face">
-				<div class="hand hour-hand"></div>
-				<div class="hand minute-hand"></div>
-				<div class="hand seconds-hand"></div>
-			</div>
-		</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic.min.css"
+    />
+    <title>CSS + JS Clock</title>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand minute-hand"></div>
+        <div class="hand seconds-hand"></div>
+      </div>
+    </div>
 
-		<footer>
-			<h1>#TIL</h1>
-			<p>
-				Today i learned how to build a clock curtosy of
-				<a href="https://javascript30.com/" alt="Wesbos">
-					<span class="oi" data-glyph="thumb-up"></span>
-					Wesbos </a
-				>.
-				<a
-					href="https://github.com/mannuelf/js-scratch-pad/tree/master/src/css-clock"
-				>
-					<span class="oi" data-glyph="code"></span>
-					read my code
-				</a>
-			</p>
-		</footer>
-		<style>
-			html {
-				background-color: #000;
-				background-image: url("https://images.unsplash.com/photo-1504333638930-c8787321eee0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'");
-				background-repeat: no-repeat;
-				background-size: cover;
-				height: 100%;
-				font-family: Arial, Helvetica, sans-serif;
-			}
+    <footer>
+      <h1>#TIL</h1>
+      <p>
+        Today i learned how to build a clock curtosy of
+        <a href="https://javascript30.com/" alt="Wesbos">
+          <span class="oi" data-glyph="thumb-up"></span>
+          Wesbos </a
+        >.
+        <a
+          href="https://github.com/mannuelf/js-scratch-pad/tree/master/src/css-clock"
+        >
+          <span class="oi" data-glyph="code"></span>
+          read my code
+        </a>
+      </p>
+    </footer>
+    <style>
+      html {
+        background-color: #000;
+        background-image: url("https://images.unsplash.com/photo-1504333638930-c8787321eee0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-			.clock {
-				width: 30rem;
-				height: 30rem;
-				border: 20px solid rgba(0, 0, 0, 0.7);
-				border-radius: 50%;
-				margin: 50px auto;
-				position: relative;
-				padding: 2rem;
-				box-shadow: 0 0 0 4px rgba(0, 0, 0), inset 0 0 0 3px #efefef,
-					inset 0 0 0 10px #000000, 0 0 10px rgba(0, 0, 0, 0.2);
-			}
+      .clock {
+        width: 30rem;
+        height: 30rem;
+        border: 20px solid rgba(0, 0, 0, 0.7);
+        border-radius: 50%;
+        margin: 50px auto;
+        position: relative;
+        padding: 2rem;
+        box-shadow: 0 0 0 4px rgba(0, 0, 0), inset 0 0 0 3px #efefef,
+          inset 0 0 0 10px #000000, 0 0 10px rgba(0, 0, 0, 0.2);
+      }
 
-			.clock-face {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				transform: translateY(-3px);
-			}
+      .clock-face {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-3px);
+      }
 
-			.hand {
-				width: 50%;
-				height: 6px;
-				background: yellow;
-				position: absolute;
-				top: 50%;
-				transform-origin: 100%;
-				transform: rotate(90deg);
-				transition: all 0.05s;
-				transition-timing-function: cubic-bezier(0.07, 1.9, 0.58, 1);
-				border-radius: 4px;
-			}
+      .hand {
+        width: 50%;
+        height: 6px;
+        background: yellow;
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+        transition: all 0.05s;
+        transition-timing-function: cubic-bezier(0.07, 1.9, 0.58, 1);
+        border-radius: 4px;
+      }
 
-			.hand.seconds-hand {
-				height: 1px;
-				background-color: pink;
-			}
+      .hand.seconds-hand {
+        height: 1px;
+        background-color: pink;
+      }
 
-			.hand.minute-hand {
-				height: 4px;
-				background-color: indianred;
-			}
+      .hand.minute-hand {
+        height: 4px;
+        background-color: indianred;
+      }
 
-			.hand.hour-hand {
-				height: 6px;
-				background-color: mediumvioletred;
-			}
+      .hand.hour-hand {
+        height: 6px;
+        background-color: mediumvioletred;
+      }
 
-			footer {
-				background-color: rgba(0, 0, 0, 0.5);
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				color: #fff;
-				padding: 1rem;
-			}
+      footer {
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #fff;
+        padding: 1rem;
+      }
 
-			footer h1 {
-				display: inline-block;
-			}
+      footer h1 {
+        display: inline-block;
+      }
 
-			footer p {
-				display: inline-block;
-			}
+      footer p {
+        display: inline-block;
+      }
 
-			a:link,
-			a:active,
-			a:visited {
-				color: mediumspringgreen;
-			}
+      a:link,
+      a:active,
+      a:visited {
+        color: mediumspringgreen;
+      }
 
-			a:hover {
-				color: indianred;
-			}
-		</style>
+      a:hover {
+        color: indianred;
+      }
+    </style>
 
-		<script>
-			const secondsHand = document.querySelector(".seconds-hand");
-			const minuteHand = document.querySelector(".minute-hand");
-			const hourHand = document.querySelector(".hour-hand");
+    <script>
+      const secondsHand = document.querySelector(".seconds-hand");
+      const minuteHand = document.querySelector(".minute-hand");
+      const hourHand = document.querySelector(".hour-hand");
 
-			function setDate() {
-				const now = new Date();
+      function setDate() {
+        const now = new Date();
 
-				const seconds = now.getSeconds();
-				const secondsDegrees = (seconds / 60) * 360 + 90;
-				secondsHand.style.transform = `rotate(${secondsDegrees}deg)`;
+        const seconds = now.getSeconds();
+        const secondsDegrees = (seconds / 60) * 360 + 90;
+        secondsHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
-				const minutes = now.getMinutes();
-				const minutesDegrees = (minutes / 60) * 360 + (seconds / 60) * 6 + 90;
-				minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+        const minutes = now.getMinutes();
+        const minutesDegrees = (minutes / 60) * 360 + (seconds / 60) * 6 + 90;
+        minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
 
-				const hour = now.getHours();
-				const hourDegrees = (hour / 12) * 360 + (minutes / 60) * 30 + 90;
-				hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-			}
+        const hour = now.getHours();
+        const hourDegrees = (hour / 12) * 360 + (minutes / 60) * 30 + 90;
+        hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+      }
 
-			setInterval(setDate, 1000);
-		</script>
-	</body>
+      setInterval(setDate, 1000);
+    </script>
+  </body>
 </html>
