@@ -2,72 +2,79 @@ import React, { Fragment, Component } from "react";
 import Input from "./common/input";
 
 class LoginForm extends Component {
-	state = {
-		account: {
-			username: "",
-			password: ""
-		},
-		errors: {}
-	};
+  state = {
+    account: {
+      username: "",
+      password: ""
+    },
+    errors: {}
+  };
 
-	username = React.createRef();
+  validateProperty = ({ name, value }) => {
+    if (name === "username") {
+      if (value.trim() === "") return "Username is required";
+    }
+    if (name === "password") {
+      if (value.trim() === "") return "Password is required";
+    }
+  };
 
-	componentDidMount() {
-		//	this.username.current.focus();
-	}
+  handleChange = ({ currentTarget: input }) => {
+    const errors = { ...this.state.errors };
+    const errorMessage = this.validateProperty(input);
 
-	handleChange = ({ currentTarget: input }) => {
-		const account = { ...this.state.account };
-		account[input.name] = input.value;
-		this.setState({ account });
-	};
+    if (errorMessage) errors[input.name] = errorMessage;
+    else delete errors[input.name];
 
-	validate = () => {
-		const errors = {};
+    const account = { ...this.state.account };
+    account[input.name] = input.value;
+    this.setState({ account, errors });
+  };
 
-		const { account } = this.state;
-		if (account.username.trim() === "")
-			errors.username = "username is required";
-		if (account.password.trim() === "")
-			errors.password = "Password is required";
+  validate = () => {
+    const errors = {};
 
-		return Object.keys(errors).length === 0 ? null : errors;
-	};
+    const { account } = this.state;
+    if (account.username.trim() === "")
+      errors.username = "Username is required";
+    if (account.password.trim() === "")
+      errors.password = "Password is required";
+    return Object.keys(errors).length === 0 ? null : errors;
+  };
 
-	handleSubmit = e => {
-		e.preventDefault();
-		const errors = this.validate();
-		console.log(errors);
-		this.setState({ errors });
-		if (errors) return;
-		console.log("submitted");
-	};
+  handleSubmit = e => {
+    e.preventDefault();
+    const errors = this.validate();
+    console.log("submitted:", errors);
+    this.setState({ errors: errors || {} });
+    if (errors) return;
+  };
 
-	render() {
-		const { account } = this.state;
-		return (
-			<Fragment>
-				<h1 className="h1">Login</h1>
-				<form onSubmit={this.handleSubmit}>
-					<Input
-						name="username"
-						value={account.username}
-						label="Username"
-						onChange={this.handleChange}
-					/>
-					<Input
-						name="password"
-						value={account.password}
-						label="Password"
-						onChange={this.handleChange}
-					/>
+  render() {
+    const { account } = this.state;
+    return (
+      <Fragment>
+        <h1 className="h1">Login</h1>
+        <form onSubmit={this.handleSubmit}>
+          <Input
+            name="username"
+            value={account.username}
+            label="Username"
+            onChange={this.handleChange}
+          />
+          <Input
+            name="password"
+            value={account.password}
+            label="Password"
+            onChange={this.handleChange}
+          />
 
-					<button type="submit" className="btn btn-primary">
-						Login
-					</button>
-				</form>
-			</Fragment>
-		);
-	}
+          <button type="submit" className="btn btn-primary">
+            Login
+          </button>
+        </form>
+      </Fragment>
+    );
+  }
 }
 export default LoginForm;
