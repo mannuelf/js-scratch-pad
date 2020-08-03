@@ -27,32 +27,13 @@ class LoginForm extends Form {
   };
 
   render() {
-    const { data } = this.state;
     return (
       <Fragment>
         <h1 className="h1">Login</h1>
         <form onSubmit={this.handleSubmit}>
-          <Input
-            name="username"
-            type="text"
-            value={data.username}
-            label="Username"
-            onChange={this.handleChange}
-          />
-          <Input
-            name="password"
-            type="password"
-            value={data.password}
-            label="Password"
-            onChange={this.handleChange}
-          />
-          <button
-            disabled={this.validate(this.validate())}
-            type="submit"
-            className="btn btn-primary"
-          >
-            Login
-          </button>
+          {this.renderInput("username", "Username")}
+          {this.renderInput("password", "Password", "password")}
+          {this.renderButton("Login")}
         </form>
       </Fragment>
     );
