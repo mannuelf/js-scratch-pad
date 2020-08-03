@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ name, label, value, onChange }) => {
+const Input = ({ name, type, label, value, onChange }) => {
   return (
     <div className="form-group">
       <label htmlFor={label}>{label}</label>
@@ -8,10 +8,11 @@ const Input = ({ name, label, value, onChange }) => {
         value={value}
         onChange={onChange}
         name={name}
-        type="password"
+        type={type}
         className="form-control"
         id={name}
       />
+
     </div>
   );
 };
