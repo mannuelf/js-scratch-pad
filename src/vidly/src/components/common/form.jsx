@@ -46,12 +46,12 @@ class Form extends Component {
     this.doSubmit();
   };
 
-  renderInput(name, label, inputType = "text") {
+  renderInput(name, label, type = "text") {
     const { data, errors } = this.state;
     return (
       <Input
         name={name}
-        type={inputType}
+        type={type}
         value={data[name]}
         label={label}
         onChange={this.handleChange}
