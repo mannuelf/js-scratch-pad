@@ -1,7 +1,6 @@
-import React, { Fragment, Component } from "react";
+import React, { Fragment } from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import Input from "./common/input";
 
 class LoginForm extends Form {
   state = {
